@@ -23,6 +23,17 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
+  scrollBehavior(to, from, savedPosition) {
+    if(savedPosition) {
+      return savedPosition 
+    }
+
+    if(to.hash) {
+      return {el: to.hash}
+    }
+
+    return { left: 0, top:0}
+  },
   routes
 })
 
