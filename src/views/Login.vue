@@ -62,7 +62,9 @@ export default {
     navigateTo() {
       this.$router.push('/home')
     },
-    signIn() {}
+    signIn() {
+      this.$router.push('/register')
+    }
   }
 };
 </script>
