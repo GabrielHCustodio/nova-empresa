@@ -12,7 +12,8 @@
               id="email"
               placeholder="name@example.com"
               autocomplete="off"
-              v-model="form.email"
+              v-model.trim="v$.form.email.$model"
+              :class="{ error: v$.form.email.$error}"
             />
           </div>
 
@@ -27,7 +28,8 @@
               id="password"
               placeholder="Digite sua senha"
               autocomplete="off"
-              v-model="form.password"
+              v-model.trim="v$.form.password.$model"
+              :class="{ error: v$.form.password.$error}"
             />
           </div>
 
@@ -115,5 +117,9 @@ a {
 .image-login {
   width: 100%;
   max-width: 600px;
+}
+
+.error {
+  border: 3px solid red;
 }
 </style>
