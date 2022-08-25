@@ -50,16 +50,36 @@
 </template>
 
 <script>
+import useVuelidate from '@vuelidate/core'
+import { required, minLength, email} from '@vuelidate/validators'
+
 export default {
   name: "Login",
+  setup: () => ({ v$: useVuelidate() }),
   data: () => ({
     form: {
       email: "",
       password: "",
     },
   }),
+  validations: {
+    form: {
+      email: {
+        required,
+        email
+      },
+      password: {
+        required,
+        minLength: minLength(6)
+      }
+    }
+  },
   methods: {
     navigateTo() {
+      this.v$.$touch();
+      if(this.v$.$error) {
+        return;
+      }
       this.$router.push('/home')
     },
     signIn() {
