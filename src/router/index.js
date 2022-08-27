@@ -4,6 +4,10 @@ import Login from '@/views/Login.vue'
 import Register from '@/views/Register.vue'
 import Welcome from '@/views/Welcome.vue'
 
+import Services from '@/components/Services.vue'
+import NewService from '@/components/NewService.vue'
+import ListServices from '@/components/ListServices.vue'
+
 const routes = [
   {
     path: '/',
@@ -23,7 +27,24 @@ const routes = [
   {
     path: '/home',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    children: [
+      {
+        path: 'services',
+        name: 'services',
+        component: Services
+      },
+      {
+        path: 'newservice',
+        name: 'newServices',
+        component: NewService
+      },
+      {
+        path: 'listservices',
+        name: 'listServices',
+        component: ListServices
+      }
+    ]
   }
 ]
 

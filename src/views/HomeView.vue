@@ -1,10 +1,71 @@
 <template>
-  <h2>Home</h2>
-  <router-link to="/">Sair</router-link>
+  <div>
+    <nav class="navbar navbar-light bg-light top-menu">
+      <div class="container">
+        <a class="navbar-brand" href="#">Empresa WebService</a>
+
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <router-link class="nav-link" to="/">Sair</router-link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="d-flex">
+            <div class="list-group menu-esquerda">
+                <router-link class="list-group-item list-group-item-action" to="/home/services" exact-active-class="active">
+                  <i class="bi bi-speedometer2"></i> Serviços
+                </router-link>
+                <router-link class="list-group-item list-group-item-action" to="/home/newservice" exact-active-class="active">
+                  <i class="bi bi-cart"></i> Novo serviço
+                </router-link>
+                <router-link class="list-group-item list-group-item-action" to="/home/listservices"  exact-active-class="active">
+                  <i class="bi bi-caret-right"></i> Lista de serviços
+                </router-link>
+            </div>
+
+            <div class="w-100">
+                <nav aria-label="breadcrumb" class="pt-1 ps-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page">Escolha um serviço</li>
+                    </ol>
+                </nav>
+
+                <div class="container-fluid">
+                    <router-view />
+                </div>
+
+            </div>
+        </div>
+
+
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeView'
-}
+  name: "HomeView",
+};
 </script>
+
+<style scoped>
+.top-menu {
+    border-bottom: solid 1px #ccc;
+}
+
+.menu-esquerda {
+    border-right: solid 1px #ccc;
+    width: 250px;
+}
+.list-group-item {
+    border-top: none;
+    border-right: none;
+    display: flex;
+    justify-content: left;
+}
+.bi{
+    width: 20px;
+    height: 20px;
+}
+</style>

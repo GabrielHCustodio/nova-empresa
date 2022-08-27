@@ -112,7 +112,7 @@ export default {
       confirmPassword: {
         required,
         minLength: minLength(6),
-        sameAsPassword: sameAs('form.password')
+        sameAs: sameAs( function() {return this.form.password})
       },
     },
   },
