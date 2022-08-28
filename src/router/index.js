@@ -4,7 +4,7 @@ import Login from '@/views/Login.vue'
 import Register from '@/views/Register.vue'
 import Welcome from '@/views/Welcome.vue'
 
-import Services from '@/components/Services.vue'
+import Services from '@/components/MyServices.vue'
 import NewService from '@/components/NewService.vue'
 import ListServices from '@/components/ListServices.vue'
 

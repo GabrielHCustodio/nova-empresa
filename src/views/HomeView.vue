@@ -15,13 +15,13 @@
     <div class="d-flex">
             <div class="list-group menu-esquerda">
                 <router-link class="list-group-item list-group-item-action" to="/home/services" exact-active-class="active">
-                  <i class="bi bi-speedometer2"></i> Serviços
+                  <i class="bi bi-tags"></i> Meus serviços
                 </router-link>
                 <router-link class="list-group-item list-group-item-action" to="/home/newservice" exact-active-class="active">
-                  <i class="bi bi-cart"></i> Novo serviço
+                  <i class="bi bi-plus-circle"></i> Criar serviço
                 </router-link>
                 <router-link class="list-group-item list-group-item-action" to="/home/listservices"  exact-active-class="active">
-                  <i class="bi bi-caret-right"></i> Lista de serviços
+                  <i class="bi bi-caret-right"></i> Nossos serviços
                 </router-link>
             </div>
 
