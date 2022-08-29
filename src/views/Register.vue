@@ -22,7 +22,7 @@
               placeholder="Gabriel"
               autocomplete="off"
               v-model.trim="v$.form.name.$model"
-              :class="{ error: v$.form.name.$error}"
+              :class="{ 'is-invalid': v$.form.name.$error}"
             />
           </div>
 
@@ -35,7 +35,7 @@
               placeholder="name@example.com"
               autocomplete="off"
               v-model.trim="v$.form.email.$model"
-              :class="{ error: v$.form.email.$error}"
+              :class="{ 'is-invalid': v$.form.email.$error}"
             />
           </div>
 
@@ -48,7 +48,7 @@
               placeholder="Digite sua senha"
               autocomplete="off"
               v-model.trim="v$.form.password.$model"
-              :class="{ error: v$.form.password.$error}"
+              :class="{ 'is-invalid': v$.form.password.$error}"
             />
           </div>
 
@@ -61,7 +61,7 @@
               placeholder="Confirme sua senha"
               autocomplete="off"
               v-model.trim="v$.form.confirmPassword.$model"
-              :class="{ error: v$.form.confirmPassword.$error}"
+              :class="{ 'is-invalid': v$.form.confirmPassword.$error}"
             />
           </div>
 
@@ -157,9 +157,5 @@ a {
 .image-register {
   width: 100%;
   max-width: 600px;
-}
-
-.error {
-  border: 3px solid red;
 }
 </style>

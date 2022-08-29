@@ -13,7 +13,7 @@
               placeholder="name@example.com"
               autocomplete="off"
               v-model.trim="v$.form.email.$model"
-              :class="{ error: v$.form.email.$error}"
+              :class="{ 'is-invalid': v$.form.email.$error}"
             />
           </div>
 
@@ -117,9 +117,5 @@ a {
 .image-login {
   width: 100%;
   max-width: 600px;
-}
-
-.error {
-  border: 3px solid red;
 }
 </style>
