@@ -4,9 +4,11 @@ import Login from '@/views/Login.vue'
 import Register from '@/views/Register.vue'
 import Welcome from '@/views/Welcome.vue'
 
-import Services from '@/components/MyServices.vue'
-import NewService from '@/components/NewService.vue'
-import ListServices from '@/components/ListServices.vue'
+import NewOrder from '@/components/orders/NewOrder.vue'
+import Order from '@/components/orders/Order.vue'
+import Orders from '@/components/orders/Orders.vue'
+import Service from '@/components/services/Service.vue'
+import Services from '@/components/services/Services.vue'
 
 const routes = [
   {
@@ -30,19 +32,29 @@ const routes = [
     component: HomeView,
     children: [
       {
+        path: 'orders',
+        name: 'orders',
+        component: Orders
+      },
+      {
+        path: 'orders/order',
+        name: 'order',
+        component: Order
+      },
+      {
+        path: 'new-order',
+        name: 'new-order',
+        component: NewOrder
+      },
+      {
         path: 'services',
         name: 'services',
         component: Services
       },
       {
-        path: 'newservice',
-        name: 'newServices',
-        component: NewService
-      },
-      {
-        path: 'listservices',
-        name: 'listServices',
-        component: ListServices
+        path: 'services/service',
+        name: 'service',
+        component: Service
       }
     ]
   }

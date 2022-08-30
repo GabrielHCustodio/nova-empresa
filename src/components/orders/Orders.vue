@@ -11,10 +11,10 @@
     <tbody>
       <tr>
         <td>1</td>
-        <td>Website</td>
+        <td>Aplicativo</td>
         <td>20/04/2022</td>
         <td>
-          <router-link to="/home/services" class="btn btn-sm btn-primary">
+          <router-link :to="{name: 'order'}" class="btn btn-sm btn-primary">
             <i class="bi bi-pencil-square" style="cursor: pointer"></i>
           </router-link>
         </td>
@@ -24,7 +24,7 @@
         <td>Landing Page</td>
         <td>14/07/2022</td>
         <td>
-          <router-link to="/home/services" class="btn btn-sm btn-primary">
+          <router-link :to="{name: 'order'}" class="btn btn-sm btn-primary">
             <i class="bi bi-pencil-square" style="cursor: pointer"></i>
           </router-link>
         </td>
@@ -35,6 +35,6 @@
 
 <script>
 export default {
-  name: "Services",
+  name: "Orders",
 };
 </script>
