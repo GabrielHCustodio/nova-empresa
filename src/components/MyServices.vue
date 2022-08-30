@@ -1,5 +1,4 @@
 <template>
-  <h3>Meus serviços</h3>
   <table class="table table-hover">
     <thead>
       <tr>

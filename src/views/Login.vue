@@ -29,7 +29,7 @@
               placeholder="Digite sua senha"
               autocomplete="off"
               v-model.trim="v$.form.password.$model"
-              :class="{ error: v$.form.password.$error}"
+              :class="{ 'is-invalid': v$.form.password.$error}"
             />
           </div>
 
