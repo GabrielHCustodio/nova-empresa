@@ -1,0 +1,30 @@
+{
+    "service": [
+        {
+            "id": 1,
+            "service": "Software",
+            "img": "001.png",
+            "description": "Descrição do serviço"
+        },
+        {
+            "id": 2,
+            "service": "Landing Page",
+            "img": "002.png",
+            "description": "Descrição do serviço"
+        },
+        {
+            "id": 3,
+            "service": "Aplicativo",
+            "img": "003.png",
+            "description": "Descrição do serviço"
+        },
+        {
+            "id": 4,
+            "service": "E-commerce",
+            "img": "004.png",
+            "description": "Descrição do serviço"
+        }
+    ],
+    "orders": [],
+    "users": []
+}
