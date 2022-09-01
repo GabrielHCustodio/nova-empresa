@@ -1,41 +1,26 @@
 <template>
-    <div class="d-flex justify-content-between flex-wrap">
-        <div class="card mb-3" style="width: 18rem">
-        <img src="@/assets/images/001.png" class="card-img-top" alt="software" />
+  <div class="d-flex justify-content-between align-items-center flex-wrap">
+    <div v-for="d in data" :key="d.id">
+      <div class="card" style="width: 20rem; height: 18rem">
+        <img :src="`/img/${d.img}`" class="card-img-top" :alt="d.service" />
         <div class="card-body">
-            <h5 class="card-title">Softwares</h5>
-            <router-link :to="{name: 'service'}" class="btn btn-primary">Saiba mais</router-link>
+          <h5 class="card-title">{{ d.service }}</h5>
+          <router-link :to="{ name: 'service' }" class="btn btn-primary">Saiba mais</router-link>
         </div>
-        </div>
-
-    <div class="card mb-3" style="width: 18rem">
-      <img src="@/assets/images/002.png" class="card-img-top" alt="landing" />
-      <div class="card-body">
-        <h5 class="card-title">Landing Page</h5>
-         <router-link :to="{name: 'service'}" class="btn btn-primary">Saiba mais</router-link>
-      </div>
-    </div>
-
-    <div class="card mb-3" style="width: 18rem">
-      <img src="@/assets/images/003.png" class="card-img-top" alt="apps" />
-      <div class="card-body">
-        <h5 class="card-title">Aplicativos</h5>
-         <router-link :to="{name: 'service'}" class="btn btn-primary">Saiba mais</router-link>
-      </div>
-    </div>
-
-    <div class="card mb-3" style="width: 18rem">
-      <img src="@/assets/images/004.png" class="card-img-top" alt="e-commerce" />
-      <div class="card-body">
-        <h5 class="card-title">E-commerce</h5>
-         <router-link :to="{name: 'service'}" class="btn btn-primary">Saiba mais</router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import ApiMixin from "@/mixins/ApiMixin";
 export default {
   name: "Services",
+  mixins: [ApiMixin],
+  created() {
+    const url = `http://localhost:3000/services`;
+    this.getDataApi(url);
+  },
 };
 </script>
+

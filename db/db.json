@@ -1,28 +1,28 @@
 {
-    "service": [
+    "services": [
         {
             "id": 1,
-            "service": "Software",
+            "service": "Software de sistemas",
             "img": "001.png",
-            "description": "Descrição do serviço"
+            "description": "Os softwares de sistema são os responsáveis pelos sistemas operacionais de todos os dispositivos e auxiliam os usuários em seu uso, de forma visual e através de comandos. São extremamente complexos em sua construção.  Exemplos: Windows, Android, iOS."
         },
         {
             "id": 2,
-            "service": "Landing Page",
+            "service": "Website institucional",
             "img": "002.png",
-            "description": "Descrição do serviço"
+            "description": "Um site institucional nada mais é do que um espaço para a sua empresa na web. Através de páginas virtuais, você irá apresentar a sua empresa, informar os seus serviços e promover a sua marca."
         },
         {
             "id": 3,
-            "service": "Aplicativo",
+            "service": "Software de aplicativos",
             "img": "003.png",
-            "description": "Descrição do serviço"
+            "description": "O tipo mais conhecido, os softwares de aplicação são os famosos programas, que são utilizados para realizar tarefas do cotidiano como ouvir música, vídeos, criar e editar planilhas e arquivos. Exemplos: Microsoft Word, Spotify, Calculadora, Instagram, TikTok."
         },
         {
             "id": 4,
             "service": "E-commerce",
             "img": "004.png",
-            "description": "Descrição do serviço"
+            "description": "E-commerce, ou comércio eletrônico, é uma modalidade de negócio em que as transações comerciais são realizadas totalmente online. Desde a escolha do produto pelo cliente, até a finalização do pedido, com o pagamento, todo o processo deve ser realizado por meios digitais.o"
         }
     ],
     "orders": [],
