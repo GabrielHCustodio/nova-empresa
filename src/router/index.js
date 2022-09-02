@@ -37,9 +37,10 @@ const routes = [
         component: Orders
       },
       {
-        path: 'orders/order',
+        path: 'orders/:id',
         name: 'order',
-        component: Order
+        component: Order,
+        props: true
       },
       {
         path: 'new-order',
@@ -52,9 +53,10 @@ const routes = [
         component: Services
       },
       {
-        path: 'services/service',
+        path: 'services/:id',
         name: 'service',
-        component: Service
+        component: Service,
+        props: true
       }
     ]
   }

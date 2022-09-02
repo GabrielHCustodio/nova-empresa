@@ -1,11 +1,10 @@
 <template>
-  <h3>Detalhes da ordem : ID</h3>
+  <h3>Detalhes da ordem : {{data.id}}</h3>
   <ul class="list-group">
-    <li class="list-group-item">Serviço</li>
-    <li class="list-group-item">Descrição</li>
-    <li class="list-group-item">Data de envio</li>
-    <li class="list-group-item">Data de finalização</li>
-    <li class="list-group-item">Valor</li>
+    <li class="list-group-item">Nome: {{data.name}}</li>
+    <li class="list-group-item">Serviço: {{data.service}}</li>
+    <li class="list-group-item">Descrição: {{data.descrition}}</li>
+    <li class="list-group-item">Data: {{data.data}}</li>
   </ul>
   <div class="col-auto d-flex justify-content-around mt-3">
     <button
@@ -17,3 +16,16 @@
     </button>
   </div>
 </template>
+
+<script>
+import ApiMixin from '@/mixins/ApiMixin'
+export default {
+  name: 'Order',
+  mixins: [ApiMixin],
+  props: ['id'],
+  created() {
+    const url = `http://localhost:3000/orders/${this.id}`
+    this.getDataApi(url)
+  }
+}
+</script>

@@ -9,22 +9,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Aplicativo</td>
-        <td>20/04/2022</td>
+      <tr v-for="d in data" :key="d.id">
+        <td>{{d.id}}</td>
+        <td>{{d.service}}</td>
+        <td>{{d.data}}</td>
         <td>
-          <router-link :to="{name: 'order'}" class="btn btn-sm btn-primary">
-            <i class="bi bi-pencil-square" style="cursor: pointer"></i>
-          </router-link>
-        </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Landing Page</td>
-        <td>14/07/2022</td>
-        <td>
-          <router-link :to="{name: 'order'}" class="btn btn-sm btn-primary">
+          <router-link :to="{name: 'order', params: { id: d.id } }" class="btn btn-sm btn-primary">
             <i class="bi bi-pencil-square" style="cursor: pointer"></i>
           </router-link>
         </td>
@@ -34,7 +24,13 @@
 </template>
 
 <script>
+import ApiMixin from "@/mixins/ApiMixin"
 export default {
   name: "Orders",
+  mixins: [ApiMixin],
+  created() {
+    const url = "http://localhost:3000/orders"
+    this.getDataApi(url)
+  }
 };
 </script>

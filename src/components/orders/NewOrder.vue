@@ -1,7 +1,7 @@
 <template>
   <form class="row g-3">
     <div class="col-md-4">
-      <label class="form-label">NOME</label>
+      <label class="form-label">NOME DO SERVIÇO</label>
       <input
         type="text"
         class="form-control"
@@ -9,17 +9,8 @@
         :class="{ 'is-invalid': v$.service.name.$error }"
       />
     </div>
-    <div class="col-md-4">
-      <label class="form-label">CPF</label>
-      <input
-        type="text"
-        class="form-control"
-        v-model.trim="v$.service.cpf.$model"
-        :class="{ 'is-invalid': v$.service.cpf.$error }"
-      />
-    </div>
     <div class="col-md-3">
-      <label class="form-label">Data</label>
+      <label class="form-label">DATA</label>
       <input
         type="date"
         class="form-control"
@@ -27,7 +18,7 @@
         :class="{ 'is-invalid': v$.service.date.$error }"
       />
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
       <label class="form-label">SERVIÇO</label>
       <select
         class="form-select"
@@ -71,7 +62,6 @@ export default {
   data: () => ({
     service: {
       name: "",
-      cpf: "",
       date: "",
       typeService: "",
       description: "",
@@ -82,11 +72,6 @@ export default {
       name: {
         required,
         minLength: minLength(3),
-      },
-      cpf: {
-        required,
-        minLength: minLength(11),
-        maxLength: maxLength(11)
       },
       date: {
         required,
