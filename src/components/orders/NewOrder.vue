@@ -5,8 +5,8 @@
       <input
         type="text"
         class="form-control"
-        v-model.trim="v$.service.name.$model"
-        :class="{ 'is-invalid': v$.service.name.$error }"
+        v-model.trim="v$.name.$model"
+        :class="{ 'is-invalid': v$.name.$error }"
       />
     </div>
     <div class="col-md-3">
@@ -14,8 +14,8 @@
       <input
         type="date"
         class="form-control"
-        v-model.trim="v$.service.date.$model"
-        :class="{ 'is-invalid': v$.service.date.$error }"
+        v-model.trim="v$.date.$model"
+        :class="{ 'is-invalid': v$.date.$error }"
       />
     </div>
     <div class="col-md-4">
@@ -23,14 +23,14 @@
       <select
         class="form-select"
         required
-        v-model.trim="v$.service.typeService.$model"
-        :class="{ 'is-invalid': v$.service.typeService.$error }"
+        v-model.trim="v$.typeService.$model"
+        :class="{ 'is-invalid': v$.typeService.$error }"
       >
         <option selected disabled value="">Escolha um serviço...</option>
-        <option value="1">Serviço 1</option>
-        <option value="2">Serviço 2</option>
-        <option value="3">Serviço 3</option>
-        <option value="4">Serviço 4</option>
+        <option value="Software de sistemas">Software de sistemas</option>
+        <option value="Website institucional">Website institucional</option>
+        <option value="Software de aplicativos">Software de aplicativos</option>
+        <option value="E-commerce">E-commerce</option>
       </select>
     </div>
     <div class="col-11">
@@ -38,16 +38,14 @@
         <textarea
           class="form-control"
           style="height: 100px"
-          v-model.trim="v$.service.description.$model"
-          :class="{ 'is-invalid': v$.service.description.$error }"
+          v-model.trim="v$.description.$model"
+          :class="{ 'is-invalid': v$.description.$error }"
         ></textarea>
         <label>Descrição do serviço...</label>
       </div>
     </div>
     <div class="col-12">
-      <button class="btn btn-primary" type="submit" @click="createdService">
-        Criar serviço
-      </button>
+      <button class="btn btn-primary" @click="createdService">Criar serviço</button>
     </div>
   </form>
 </template>
@@ -60,15 +58,12 @@ export default {
   name: "NewService",
   setup: () => ({ v$: useVuelidate() }),
   data: () => ({
-    service: {
       name: "",
       date: "",
       typeService: "",
       description: "",
-    },
   }),
   validations: {
-    service: {
       name: {
         required,
         minLength: minLength(3),
@@ -82,11 +77,27 @@ export default {
       description: {
         required,
         maxLength: maxLength(200),
-      },
     },
   },
   methods: {
-    createdService() {},
+    async createdService() {
+      let pedidos = {
+        id: Math.random().toFixed(2),
+        name: this.name,
+        data: this.date,
+        service: this.typeService,
+        description: this.description,
+      };
+
+      const pedidoJson = JSON.stringify(pedidos);
+      const req = await fetch("http://localhost:3000/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: pedidoJson,
+      });
+
+      const res = await req.json();
+    },
   },
 };
 </script>

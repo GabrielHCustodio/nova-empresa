@@ -3,7 +3,7 @@
   <ul class="list-group">
     <li class="list-group-item">Nome: {{data.name}}</li>
     <li class="list-group-item">Serviço: {{data.service}}</li>
-    <li class="list-group-item">Descrição: {{data.descrition}}</li>
+    <li class="list-group-item">Descrição: {{data.description}}</li>
     <li class="list-group-item">Data: {{data.data}}</li>
   </ul>
   <div class="col-auto d-flex justify-content-around mt-3">
