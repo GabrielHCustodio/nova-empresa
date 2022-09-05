@@ -11,7 +11,7 @@
       class="col-md-5 d-flex justify-content-center align-items-center left-register"
     >
       <div class="col-8">
-        <h2 class="text-center mb-5 title-register">Faça o seu cadastro</h2>
+        <h2 class="text-center mb-3 title-register">Faça o seu cadastro</h2>
         <div class="form">
           <div class="form-group">
             <label for="name" class="form-label">Nome</label>
@@ -21,8 +21,8 @@
               id="name"
               placeholder="Gabriel"
               autocomplete="off"
-              v-model.trim="v$.form.name.$model"
-              :class="{ 'is-invalid': v$.form.name.$error}"
+              v-model.trim="v$.name.$model"
+              :class="{ 'is-invalid': v$.name.$error }"
             />
           </div>
 
@@ -34,8 +34,8 @@
               id="email"
               placeholder="name@example.com"
               autocomplete="off"
-              v-model.trim="v$.form.email.$model"
-              :class="{ 'is-invalid': v$.form.email.$error}"
+              v-model.trim="v$.email.$model"
+              :class="{ 'is-invalid': v$.email.$error }"
             />
           </div>
 
@@ -47,21 +47,23 @@
               id="password"
               placeholder="Digite sua senha"
               autocomplete="off"
-              v-model.trim="v$.form.password.$model"
-              :class="{ 'is-invalid': v$.form.password.$error}"
+              v-model.trim="v$.password.$model"
+              :class="{ 'is-invalid': v$.password.$error }"
             />
           </div>
 
           <div class="form-group mt-3">
-            <label for="confirmPassword" class="form-label">Confirme sua senha</label>
+            <label for="repeatPassword" class="form-label"
+              >Confirme sua senha</label
+            >
             <input
               type="password"
               class="form-control"
-              id="confirmPassword"
+              id="repeatPassword"
               placeholder="Confirme sua senha"
               autocomplete="off"
-              v-model.trim="v$.form.confirmPassword.$model"
-              :class="{ 'is-invalid': v$.form.confirmPassword.$error}"
+              v-model.trim="v$.repeatPassword.$model"
+              :class="{ 'is-invalid': v$.repeatPassword.$error }"
             />
           </div>
 
@@ -81,47 +83,59 @@
 </template>
 
 <script>
-import useVuelidate from '@vuelidate/core'
-import { required, minLength, email, sameAs} from '@vuelidate/validators'
+import useVuelidate from "@vuelidate/core";
+import { required, minLength, email, sameAs } from "@vuelidate/validators";
 
 export default {
   name: "Register",
   setup: () => ({ v$: useVuelidate() }),
-  data: () => ({
-    form: {
-      name: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-    },
-  }),
+  data() {
+    return {
+      name: '',
+      email: '',
+      password: '',
+      repeatPassword: ''
+    };
+  },
   validations: {
-    form: {
-      name: {
-        required,
-        minLength: minLength(3)
-      },
-      email: {
-        required,
-        email,
-      },
-      password: {
-        required,
-        minLength: minLength(6),
-      },
-      confirmPassword: {
-        required,
-        minLength: minLength(6),
-        sameAsPassword: sameAs('form.password')
-      },
+    name: {
+      required,
+      minLength: minLength(3),
     },
+    email: {
+      required,
+      email,
+    },
+    password: {
+      required,
+      minLength: minLength(6)
+    },
+    repeatPassword: {
+      required,
+      minLength: minLength(6),
+    }
   },
   methods: {
-    register() {
+    async register() {
       this.v$.$touch();
-      if(this.v$.$error) {
+      if (this.v$.$error) {
         return;
       }
+
+      let user = {
+        name: this.name,
+        email: this.email,
+        password: this.password
+      }
+
+      const userJson = JSON.stringify(user)
+      const req = await fetch("http://localhost:3000/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: userJson
+      })
+
+      const res = await req.json()
       this.$router.push("/login");
     },
     comeBack() {

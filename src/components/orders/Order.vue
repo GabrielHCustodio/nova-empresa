@@ -4,7 +4,7 @@
     <li class="list-group-item">Nome: {{data.name}}</li>
     <li class="list-group-item">Serviço: {{data.service}}</li>
     <li class="list-group-item">Descrição: {{data.description}}</li>
-    <li class="list-group-item">Data: {{data.data}}</li>
+    <li class="list-group-item">Data: {{data.date}}</li>
   </ul>
   <div class="col-auto d-flex justify-content-around mt-3">
     <button

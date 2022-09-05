@@ -12,7 +12,7 @@
       <tr v-for="d in data" :key="d.id">
         <td>{{d.id}}</td>
         <td>{{d.service}}</td>
-        <td>{{d.data}}</td>
+        <td>{{d.date}}</td>
         <td>
           <router-link :to="{name: 'order', params: { id: d.id } }" class="btn btn-sm btn-primary">
             <i class="bi bi-pencil-square" style="cursor: pointer"></i>

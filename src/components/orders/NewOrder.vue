@@ -55,7 +55,7 @@ import useVuelidate from "@vuelidate/core";
 import { required, minLength, maxLength } from "@vuelidate/validators";
 
 export default {
-  name: "NewService",
+  name: "NewOrder",
   setup: () => ({ v$: useVuelidate() }),
   data: () => ({
       name: "",
@@ -81,10 +81,14 @@ export default {
   },
   methods: {
     async createdService() {
+      this.v$.$touch();
+      if (this.v$.$error) {
+        return;
+      }
+      
       let pedidos = {
-        id: Math.random().toFixed(2),
         name: this.name,
-        data: this.date,
+        date: this.date,
         service: this.typeService,
         description: this.description,
       };
@@ -97,6 +101,8 @@ export default {
       });
 
       const res = await req.json();
+
+      this.$router.push({name: 'orders'})
     },
   },
 };
